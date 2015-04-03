@@ -1,0 +1,88 @@
+{
+  "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+  "hdt": "http://hydrator.org/ns/hydrator/core#",
+  "@id": "http://api-mappings.example.org/gmail/",
+  "@type": "ApiDocumentation",
+  "title": "The name of the API",
+  "description": "A short description of the API",
+  "entrypoint": "URL of the API's main entry point",
+  "supportedClass": [
+//    ... Classes known to be supported by the Web API ...
+    {
+      "@id": "User",
+      "@type": "Class",
+      "title": "A Gmail User",
+//      "description": "A short description of the class.",
+      "hdt:context": {
+
+      },
+      "supportedProperty": [
+        // ... Properties known to be supported by the class ...
+        {
+          "@type": "SupportedProperty",
+          "property": {
+            "@id": "#hasProfile", // (/profile)
+            "@type": "Link",
+            "supportedOperation": {
+              "method": "GET",
+              "returns": "#UserProfile",
+            }
+          }, // The property
+//          "required": true, // Is the property required in a request to be valid?
+          "readable": true, // Can the client retrieve the property's value?
+//          "writeable": true // Can the client change the property's value?
+        },
+        {
+          "@id": "messages"
+          "@type": "ldp:DirectContainer",
+          "dcterms:title": "The assets of JohnZSmith",
+          "ldp:membershipResource": "..",
+          "ldp:hasMemberRelation": "";
+ldp:contains <a1>, <a2>.
+        },
+        {
+          "@type": "SupportedProperty",
+          "property": {
+            "@id": "#hasMessage", // (/messages)
+            "@type": "Link"
+          }, // The property
+//          "required": true, // Is the property required in a request to be valid?
+          "readable": true, // Can the client retrieve the property's value?
+//          "writeable": true // Can the client change the property's value?
+        }
+      ],
+      "supportedOperation": [
+        //  ... Operations known to be supported by instances of the class ...
+        {
+          "@type": "CreateResourceOperation",
+          "title": "Creates a new comment",
+          "method": "POST",
+          "expects": "http://api.example.com/doc/#Comment",
+          "returns": "http://api.example.com/doc/#Comment",
+          "statusCodes": [
+            ... optional information about status codes that might be returned ...
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "Message"
+      "@type": "Class",
+      "title": "A Gmail Message",
+      "hdt:context": {},
+      "supportedProperty": [
+        // ... Properties known to be supported by the class ...
+        {
+          "@type": "SupportedProperty",
+
+//            "required": true, // Is the property required in a request to be valid?
+          "readable": true, // Can the client retrieve the property's value?
+//            "writeable": true // Can the client change the property's value?
+        }
+      ]
+    }
+  ],
+  "possibleStatus": [
+    ... Statuses that should be expected and handled properly ...
+  ]
+}
