@@ -4,9 +4,12 @@ Reference specs
 * http://www.hydra-cg.com/spec/latest/core/
 * http://json-schema.org/latest/json-schema-core.html
 * http://linkeddatafragments.org/
+* http://json-schema.org/latest/json-schema-hypermedia.html
 
 Representation of Mapping
 * Hydra vocab + JSON-LD contexts for classes/operations
+* Ontology-based Mapping
+* Json Schema Hypermedia
 
 Actual Mapping
 * Directly JSON-LD from/to JSON or

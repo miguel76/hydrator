@@ -1,0 +1,7 @@
+subclass of OperationCall
+with method GET
+with header h
+with statuscode OK
+with return y
+
+equals
